@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvar Xayitboyev</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Font Awesome icons -->
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Background animation */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, black, white);
+            background-size: 300% 300%;
+            animation: gradientAnimation 10s ease infinite;
+            z-index: -1;
+        }
+
+        /* Animation for the background */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* General layout */
+        body {
+            font-family: Arial, sans-serif;
+            color: white;
+            line-height: 1.6;
+            background-color: black;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            color: white;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+        }
+
+        /* Profile image with stylish effect */
+        .profile-img {
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 1);
+        }
+
+        /* Name animation */
+        .info h1 {
+            font-size: 4rem;
+            opacity: ;
+            transform: translateY(5px);
+            animation: fadeInUp 5s forwards;
+            transition: color 2s ease;
+        }
+
+        /* Animation for the name */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .info p {
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1.5s 0.5s forwards;
+        }
+
+        /* Biography Section */
+        .biography {
+            padding: 50px 20px;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .biography h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #7d7a79;
+        }
+
+        .biography h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #ddd;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 50px 20px;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            margin-top: -40px;
+            gap: 20px;
+        }
+
+        .skills h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #857b76;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .skills-box {
+            background-color: #333;
+            padding: 30px;
+            width: 350px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .skills-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .skills-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #f1f1f1;
+        }
+
+        .skills-box p {
+            font-size: 1.2rem;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 50px 20px;
+            background-color: #222;
+            color: white;
+            text-align: left;
+            margin-top: -40px; /* Moves contact section above */
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            border-bottom: 3px solid #a65a28;
+            margin-bottom: 30px;
+            text-align: center; /* Center the title */
+        }
+
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-box {
+            background-color: #333;
+            padding: 20px;
+            width: 320px;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            word-wrap: break-word; /* Ensures text stays inside the box */
+            overflow-wrap: break-word; /* Handles longer words */
+            white-space: normal; /* Allows the text to break across multiple lines */
+        }
+
+
+        .contact-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .contact-box i {
+            font-size: 2rem;
+            color: #f1f1f1;
+        }
+
+        .contact-box h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-box p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #a65a28;
+            color: black;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .info h1 {
+                font-size: 2rem;
+            }
+
+            .skills, .contact {
+                padding: 30px 0;
+            }
+
+            .skills-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-box {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        /* Certificates Section */
+        .certificates {
+            padding: 100px 50px;
+            background-color: #8f8e8d;
+            text-align: center;
+            color: #333;
+        }
+
+        .certificates h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #a65a28;
+        }
+
+        .certificate-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .certificate {
+            background-color: #fff;
+            width: 680px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .certificate:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .certificate:hover .certificate-img {
+            transform: scale(1.1);
+        }
+
+        .certificate-description {
+            padding: 20px;
+            background-color: #fff;
+            color: #555;
+        }
+
+        .certificate-description p {
+            margin: 10px 0;
+        }
+
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <div class="container">
+            <div class="profile">
+                <img src="photo.png" alt="Your Photo" class="profile-img">
+            </div>
+            <div class="info">
+                <h1 id="name">Sarvar Xayitboye</h1>
+                <p>Backend Developer</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Section moved above -->
+    <section class="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+            <a href="mailto:xaytiboyevs004@gmail.com" class="contact-box">
+                <i class="fas fa-envelope"></i>
+                <div>
+                    <h3>Email</h3>
+                    <p>xayitboyevs004@gmail.com</p>
+                </div>
+            </a>
+            <a href="tel:+998930369045" class="contact-box">
+                <i class="fas fa-phone-alt"></i>
+                <div>
+                    <h3>Phone</h3>
+                    <p>+998(93) 036 90 45</p>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/sarvardev._" class="contact-box" target="_blank">
+                <i class="fab fa-instagram"></i>
+                <div>
+                    <h3>Instagram</h3>
+                    <p>sarvardev._</p>
+                </div>
+            </a>
+            <a href="https://web.telegram.org/k/#@SarvarXayitboyev" class="contact-box" target="_blank">
+                <i class="fab fa-telegram-plane"></i>
+                <div>
+                    <h3>Telegram</h3>
+                    <p>@SarvarXayitboyev</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="biography">
+        <h2>Biography</h2>
+        <h3>I, Khaitboyev Sarvar, was born on October 4, 2005 in the Jizzakh region of Uzbekistan.</h3>
+        <h3>I started school at the secondary school in Arnasoy district of Jizzakh region and graduated</h3>
+        <h3>from the 13th secondary school in Chirchik in 2019. My interest in reading and technology led me to programming.</h3>
+        <h3> In 2019, I started studying IT at Astrum IT Academy. First, I learned the backend field in PHP and Laravel technologies.</h3>
+        <h3>Then in 2023, I decided to switch to Python (Django) backend programming in order to explore new opportunities.</h3>
+        <h3>I believe that this direction will be more interesting for me and will give me ample opportunities for development.</h3>
+    </section>
+
+    <section class="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-box">
+                <h3>Backend Development (Python)</h3>
+                <p>Backend development using Python Django framework.</p>
+                <p>Understanding and applying OOP (Object-Oriented Programming) principles.</p>
+                <p>User authentication and session management.</p>
+            </div>
+            <div class="skills-box">
+                <h3>Database Skills</h3>
+                <p>Writing and optimizing SQL queries.</p>
+                <p>Working with databases like MySQL for data manipulation.</p>
+                <p>Storing and working with data in JSON format.</p>
+            </div>
+            <div class="skills-box">
+                <h3>Telegram Bot Development</h3>
+                <p>Creating and configuring Telegram bots using Python.</p>
+                <p>Building inline keyboards and interacting with users.</p>
+                <p>Using Webhooks and polling to handle bot interactions.</p>
+            </div>
+        </div>
+    </section>
+    <section class="certificates">
+    <h2>My Certificates</h2>
+    <div class="certificate-container">
+        <div class="certificate">
+            <img src="astrum-certificate.png" alt="Certificate 1" class="certificate-img">
+
+        </div>
+        <div class="certificate">
+            <img src="qwasar-certificate.png" alt="Certificate 2" class="certificate-img">
+        </div>
+    </div>
+</section>
+    <footer>
+        <p>&copy; 2024 Sarvar. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to change the text color based on background animation
+        function changeTextColor() {
+            const nameElement = document.getElementById('name');
+            const time = Date.now();
+            // Oscillates between darker shades
+            const colorValue = Math.sin(time / 1000) * 50 + 50;
+            const textColor = `rgb(${colorValue}, ${colorValue}, ${colorValue})`;
+
+            nameElement.style.color = textColor;
+        }
+
+        setInterval(changeTextColor, 100);
+    </script>
+</body>
+</html>
